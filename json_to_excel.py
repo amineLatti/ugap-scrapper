@@ -36,7 +36,9 @@ for filename in tqdm(os.listdir(json_folder), desc="Traitement JSON"):
         "prix_degressifs": " | ".join(
             f"{p['quantity']}u → {p['price']}"
             for p in sorted(data.get("prix_degressifs", []), key=lambda x: x["quantity"])
-        )
+        ),
+        "fournisseur": data.get("fournisseur"),
+        "Marque": data.get("Marque"),
     }
 
     records.append(rec)
