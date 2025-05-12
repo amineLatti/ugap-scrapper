@@ -3,10 +3,12 @@ import json
 import pandas as pd
 from tqdm import tqdm
 
-json_folder = "json_extraits"
+json_folder = "outputs"
 records = []
 
 for filename in tqdm(os.listdir(json_folder), desc="Traitement JSON"):
+    if not filename.startswith("extracted_"):
+        continue
     if not filename.endswith(".json"):
         continue
     path = os.path.join(json_folder, filename)
